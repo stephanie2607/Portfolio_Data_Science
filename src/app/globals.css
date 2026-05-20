@@ -1,52 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
   --font-mono: 'Space Mono', monospace;
   --font-body: 'Inter', sans-serif;
+  --color-bg: #0f172a;
+  --color-surface: #111827;
+  --color-surface-soft: #17223a;
+  --color-primary: #a78bfa;
+  --color-secondary: #f9a8d4;
+  --color-accent: #d8b4fe;
+  --color-text: #e2e8f0;
+  --color-muted: #94a3b8;
+  --color-border: rgba(167,139,250,0.18);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #0a0a0f;
+  background-color: var(--color-bg);
 }
 
 body {
   font-family: var(--font-body);
-  background-color: #0a0a0f;
-  color: #e8e8f0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   overflow-x: hidden;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--fallback-b1, oklch(var(--b1))); }
-::-webkit-scrollbar-thumb { background: #e8613a; border-radius: 2px; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.65); }
+::-webkit-scrollbar-thumb { background: rgba(167, 139, 250, 0.55); border-radius: 999px; }
 
 /* Light mode overrides */
 html.light-mode body { background-color: #f8f5f0; }
 html.light-mode .grid-bg {
   background-image:
-    linear-gradient(rgba(232, 97, 58, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 97, 58, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(167, 139, 250, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 114, 182, 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 html.light-mode .glow-box {
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08), 0 0 30px rgba(232, 97, 58, 0.06);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08), 0 0 30px rgba(167, 139, 250, 0.06);
 }
 html.light-mode .glow-box:hover {
-  box-shadow: 0 4px 30px rgba(0,0,0,0.12), 0 0 40px rgba(232, 97, 58, 0.12);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.12), 0 0 40px rgba(167, 139, 250, 0.12);
 }
 
 /* Grid overlay */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(232, 97, 58, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 97, 58, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(167, 139, 250, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 114, 182, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -66,7 +75,7 @@ html.light-mode .glow-box:hover {
 .cursor::after {
   content: '_';
   animation: blink 1.2s step-end infinite;
-  color: #e8613a;
+  color: var(--color-secondary);
 }
 
 @keyframes blink {
@@ -84,7 +93,7 @@ html.light-mode .glow-box:hover {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(232,97,58,0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.35), transparent);
   animation: scan 4s linear infinite;
   z-index: 1;
   pointer-events: none;
@@ -97,13 +106,13 @@ html.light-mode .glow-box:hover {
 
 /* Glow effects */
 .glow {
-  text-shadow: 0 0 20px rgba(232, 97, 58, 0.5);
+  text-shadow: 0 0 24px rgba(167,139,250,0.45);
 }
 .glow-box {
-  box-shadow: 0 0 30px rgba(232, 97, 58, 0.15), 0 0 60px rgba(232, 97, 58, 0.05);
+  box-shadow: 0 0 30px rgba(167,139,250,0.15), 0 0 80px rgba(244,114,182,0.08);
 }
 .glow-box:hover {
-  box-shadow: 0 0 40px rgba(232, 97, 58, 0.25), 0 0 80px rgba(232, 97, 58, 0.1);
+  box-shadow: 0 0 40px rgba(167,139,250,0.25), 0 0 90px rgba(244,114,182,0.12);
 }
 
 /* Section reveal */
@@ -119,7 +128,7 @@ html.light-mode .glow-box:hover {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #e8613a 0%, #f5c842 60%, #4a9eff 100%);
+  background: linear-gradient(135deg, #a78bfa 0%, #f9a8d4 45%, #e2e8f0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

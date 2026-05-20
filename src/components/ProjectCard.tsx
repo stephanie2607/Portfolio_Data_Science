@@ -4,7 +4,7 @@ import type { Project } from "@/lib/github"
 import { useLang } from "@/lib/providers"
 
 const LANG_COLORS: Record<string, string> = {
-  Python: "#3572A5", R: "#198CE7", JavaScript: "#f1e05a", TypeScript: "#2b7489",
+  Python: "#3572A5", TypeScript: "#2b7489",
   SQL: "#e38c00", Jupyter: "#DA5B0B", Scala: "#c22d40", default: "#8a8a9a",
 }
 
@@ -27,24 +27,53 @@ export default function ProjectCard({ project }: { project: Project }) {
     <div className="group relative rounded-xl border border-base-300 bg-base-200/80 backdrop-blur overflow-hidden
       transition-all duration-300 hover:border-primary/40 hover:-translate-y-1 glow-box flex flex-col">
 
-      <div className="h-40 bg-base-300 overflow-hidden relative">
-        {project.imageUrl && !imgErr ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={project.imageUrl} alt={project.name}
-            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300 scale-105"
-            onError={() => setImgErr(true)} />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-base-200 to-base-300">
-            <span className="font-display text-4xl font-extrabold text-base-content/10 select-none">
-              {project.name.slice(0, 2).toUpperCase()}
-            </span>
+      <div className="relative">
+        <div className="absolute top-3 left-3 z-10 rounded-full bg-base-100/90 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-base-content/70 shadow-sm">
+          Dépôt Privé
+        </div>
+        <div className="h-40 grid grid-cols-2 gap-2 overflow-hidden rounded-t-xl">
+          <div className="relative overflow-hidden bg-base-300">
+            {project.imageUrl && !imgErr ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={project.imageUrl} alt={`${project.name} interface`}
+                className="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-300"
+                onError={() => setImgErr(true)} />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-base-200 to-base-300">
+                <span className="font-display text-4xl font-extrabold text-base-content/10 select-none">
+                  {project.name.slice(0, 2).toUpperCase()}
+                </span>
+              </div>
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            <div className="absolute bottom-3 left-3 rounded-full bg-black/50 px-2.5 py-1 text-[10px] uppercase tracking-[0.24em] text-base-content/70">
+              Interface
+            </div>
           </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-base-200 via-transparent to-transparent" />
+          <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-transparent to-secondary/10">
+            {((project.analysisImageUrl || project.imageUrl) && !imgErr) ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={project.analysisImageUrl || project.imageUrl || ""} alt={`${project.name} analyse`}
+                className="w-full h-full object-cover opacity-75 group-hover:opacity-90 transition-opacity duration-300"
+                onError={() => setImgErr(true)}
+              />
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-center px-4 py-3">
+                <div className="text-[10px] uppercase tracking-[0.24em] text-secondary/80">Analyse</div>
+                <div className="text-[11px] leading-snug text-base-content/65">
+                  Visualisation et aperçu code
+                </div>
+              </div>
+            )}
+            <div className="absolute bottom-3 left-3 rounded-full bg-black/50 px-2.5 py-1 text-[10px] uppercase tracking-[0.24em] text-base-content/70">
+              Analyse
+            </div>
+          </div>
+        </div>
         {project.language && (
           <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-base-100/80 rounded-full px-2.5 py-1">
             <span className="w-2 h-2 rounded-full" style={{ background: langColor }} />
-            <span className="font-mono text-xs text-base-content/50">{project.language}</span>
+            <span className="font-mono text-[10px] text-base-content/50">{project.language}</span>
           </div>
         )}
       </div>
@@ -55,7 +84,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             {project.name.replace(/-/g, " ").replace(/_/g, " ")}
           </h3>
           <p className="font-body text-base-content/50 text-sm leading-relaxed line-clamp-3">
-            {project.description || "A data science project."}
+            {project.description || t.projects.privateNote}
           </p>
         </div>
 

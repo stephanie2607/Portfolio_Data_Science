@@ -25,6 +25,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "hero.viewProjects": "View Projects →",
     "hero.contactMe": "Contact Me",
     "hero.resume": "↓ Resume",
+    "hero.intro": "Driving measurable progress with data, clarity and momentum.",
     // About
     "about.section": "About Me",
     "about.openToWork": "✓ Open to work",
@@ -75,6 +76,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "hero.viewProjects": "Voir les projets →",
     "hero.contactMe": "Me contacter",
     "hero.resume": "↓ Télécharger le CV",
+    "hero.intro": "J'accélère votre progrès avec des données claires et des résultats visibles.",
     // About
     "about.section": "À propos de moi",
     "about.openToWork": "✓ Ouvert aux opportunités",

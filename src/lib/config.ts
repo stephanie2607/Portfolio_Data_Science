@@ -4,56 +4,37 @@
 
 export const config = {
   // ── Personal Info ──────────────────────────────────────────
-  name: "Randrianarivelo Manantsoa Rayan",
-  title: "Data Scientist & Engineer",
-  tagline: "Turning raw data into decisions.",
-  bio: `I'm a data professional passionate about building end-to-end data solutions — 
-from raw pipeline to production ML models. I enjoy working at the intersection of 
-engineering rigor and analytical depth, and I love crafting tools that make data 
-accessible and actionable.`,
+  name: "RASOAMANANA Herimanjaka Stéphanie",
+  title: "Data Scientist | Analyst | Engineer",
+  tagline: "Professional data scientist passionate about creating end-to-end solutions — from raw pipelines to production ML models.",
+  bio: `Fuelled by an infectious optimism and a deep passion for Big Data & AI, I build scalable solutions where engineering rigor meets strategic vision, always driven by a relentless curiosity to innovate and a proactive search for new technological opportunities.`,
   location: "Antananarivo, Madagascar",
-  email: "you@example.com",
-  avatar: "", // URL or leave empty for initials avatar
+  email: "stephparabis@gmail.com",
+  avatar: "/avatar.jpg", // URL or leave empty for initials avatar
 
   // ── Social Links ───────────────────────────────────────────
-  github: "ManantsoaRayan", // ← REQUIRED — also drives project fetching
-  linkedin: "https://linkedin.com/in/yourprofile",
+  github: "stephanie2607", // ← REQUIRED — also drives project fetching
+  linkedin: "https://www.linkedin.com/in/stephanie-parabis-3a9a9b318",
   twitter: "", // or X handle — leave empty to hide
-  kaggle: "https://kaggle.com/yourprofile", // leave empty to hide
+  kaggle: "", // leave empty to hide
 
   // ── Skills ─────────────────────────────────────────────────
   // Each group has a label, an emoji icon, and a list of skills
   skillGroups: [
     {
-      label: "Languages",
-      icon: "💻",
-      skills: ["Python", "SQL", "R", "Bash", "JavaScript"],
+      label: "Data Engineering & Analytics",
+      icon: "🧩",
+      skills: ["ETL", "EDA", "SQL", "Pandas", "Tableau / Plotly"],
     },
     {
-      label: "Data & ML",
-      icon: "🧠",
-      skills: [
-        "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch",
-        "XGBoost", "LightGBM", "Hugging Face",
-      ],
+      label: "Machine Learning & AI",
+      icon: "🤖",
+      skills: ["Regression", "Classification", "NLP", "Computer Vision", "Scikit-Learn"],
     },
     {
-      label: "Data Engineering",
-      icon: "⚙️",
-      skills: [
-        "Apache Spark", "Airflow", "dbt", "Kafka",
-        "PostgreSQL", "BigQuery", "Snowflake", "DuckDB",
-      ],
-    },
-    {
-      label: "Visualisation",
-      icon: "📊",
-      skills: ["Matplotlib", "Plotly", "Seaborn", "Streamlit", "Tableau", "Power BI"],
-    },
-    {
-      label: "Cloud & DevOps",
-      icon: "☁️",
-      skills: ["AWS", "GCP", "Docker", "GitHub Actions", "Terraform"],
+      label: "Development & Tools",
+      icon: "🛠️",
+      skills: ["Python", "FastAPI / Streamlit", "Git", "Linux / Kali", "Docker"],
     },
   ],
 
@@ -62,9 +43,9 @@ accessible and actionable.`,
 
   // ── Fun stats shown in the hero ───────────────────────────
   stats: [
-    { value: "50+", label: "Datasets analysed" },
-    { value: "20+", label: "Models deployed" },
-    { value: "5+", label: "Years experience" },
+    { value: "10+", label: "Academic Projects" },
+    { value: "13+", label: "Tools & Libraries" },
+    { value: "100%", label: "AI Enthusiast" },
   ],
 }
 

@@ -23,11 +23,13 @@ export interface Project {
   repoUrl: string
   demoUrl: string | null
   imageUrl: string | null
+  analysisImageUrl?: string | null
   topics: string[]
   language: string | null
   stars: number
   forks: number
   updatedAt: string
+  privateRepo?: boolean
 }
 
 const DATASCIENCE_KEYWORD = "DATASCIENCE"
@@ -103,11 +105,13 @@ export async function fetchDataScienceProjects(username: string): Promise<Projec
         repoUrl: repo.html_url,
         demoUrl,
         imageUrl,
+        analysisImageUrl: null,
         topics: repo.topics || [],
         language: repo.language,
         stars: repo.stargazers_count,
         forks: repo.forks_count,
         updatedAt: repo.updated_at,
+        privateRepo: false,
       }
     })
   } catch {

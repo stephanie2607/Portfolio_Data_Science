@@ -31,30 +31,30 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="font-mono text-sm font-bold tracking-wider">
-          <span className="text-primary">&gt;</span>{" "}
+        <a href="#" className="font-display text-sm font-bold tracking-wide">
+          <span className="text-secondary">&gt;</span>{" "}
           <span className="text-base-content">
             {config.name.split(" ")[0].toLowerCase()}
-            <span className="text-primary">_</span>
+            <span className="text-secondary">_</span>
           </span>
         </a>
 
         <ul className="hidden md:flex items-center gap-6">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="font-mono text-xs tracking-widest text-base-content/50 hover:text-primary transition-colors uppercase">
+              <a href={l.href} className="font-body text-xs tracking-wider text-base-content/50 hover:text-secondary transition-colors uppercase">
                 {l.label}
               </a>
             </li>
           ))}
-          {config.resumeUrl && (
+          {/* {config.resumeUrl && (
             <li>
               <a href={config.resumeUrl} target="_blank" rel="noopener noreferrer"
                 className="btn btn-xs btn-outline btn-primary font-mono tracking-wider">
                 {t.nav.resume}
               </a>
             </li>
-          )}
+          )} */}
           <li>
             <button onClick={toggleLang}
               className="btn btn-xs btn-ghost font-mono tracking-wider text-base-content/60 hover:text-primary border border-base-content/10 hover:border-primary/40 min-w-[2.5rem]"

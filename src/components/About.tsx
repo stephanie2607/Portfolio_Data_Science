@@ -27,60 +27,12 @@ export default function About() {
           <div className="flex-1 hr-data" />
         </div>
 
-        <div className="grid md:grid-cols-5 gap-12 items-start">
-          <div className="md:col-span-2 flex flex-col items-center md:items-start gap-6">
-            <div className="relative w-48 h-48">
-              {config.avatar ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={config.avatar} alt={config.name}
-                  className="w-48 h-48 rounded-2xl object-cover border-2 border-primary/40 glow-box" />
-              ) : (
-                <div className="w-48 h-48 rounded-2xl border-2 border-primary/40 bg-base-200 flex items-center justify-center glow-box">
-                  <span className="font-display text-5xl font-extrabold gradient-text">
-                    {config.name.split(" ").map((n) => n[0]).join("")}
-                  </span>
-                </div>
-              )}
-              <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary" />
-              <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-secondary" />
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <span className="badge badge-outline border-primary/40 text-base-content/50 font-mono text-xs">
-                📍 {config.location}
-              </span>
-              <span className="badge badge-outline border-success/40 text-success font-mono text-xs">
-                {t.about.openToWork}
-              </span>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              {config.github && (
-                <a href={`https://github.com/${config.github}`} target="_blank" rel="noopener noreferrer"
-                  className="btn btn-xs btn-outline border-primary/40 text-base-content/50 hover:border-primary hover:text-primary font-mono">
-                  GitHub
-                </a>
-              )}
-              {config.linkedin && (
-                <a href={config.linkedin} target="_blank" rel="noopener noreferrer"
-                  className="btn btn-xs btn-outline border-secondary/40 text-base-content/50 hover:border-secondary hover:text-secondary font-mono">
-                  LinkedIn
-                </a>
-              )}
-              {config.kaggle && (
-                <a href={config.kaggle} target="_blank" rel="noopener noreferrer"
-                  className="btn btn-xs btn-outline border-info/40 text-base-content/50 hover:border-info hover:text-info font-mono">
-                  Kaggle
-                </a>
-              )}
-            </div>
-          </div>
-
-          <div className="md:col-span-3 space-y-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
             <p className="font-body text-base-content/60 text-lg leading-relaxed">{config.bio}</p>
 
-            <div className="rounded-xl border border-base-300 bg-base-200/60 p-5 space-y-3">
-              <p className="font-mono text-primary text-xs tracking-widest uppercase mb-3">
+            <div className="rounded-3xl border border-base-300 bg-base-200/60 p-5 space-y-4 shadow-sm">
+              <p className="font-mono text-primary text-xs tracking-widest uppercase mb-2">
                 {t.about.whatIBring}
               </p>
               {t.about.bullets.map((text, i) => {
@@ -92,6 +44,23 @@ export default function About() {
                   </div>
                 )
               })}
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-sm">
+            <div className="absolute inset-0 translate-x-4 -translate-y-4 rounded-[2.25rem] border border-secondary/20 bg-secondary/5" />
+            <div className="relative rounded-[2.25rem] overflow-hidden border-2 border-primary/30 bg-base-200 shadow-[0_20px_80px_-40px_rgba(99,102,241,0.65)]">
+              {config.avatar ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={config.avatar} alt={config.name}
+                  className="w-full h-[420px] object-cover" />
+              ) : (
+                <div className="w-full h-[420px] flex items-center justify-center bg-base-300">
+                  <span className="font-display text-5xl font-extrabold gradient-text">
+                    {config.name.split(" ").map((n) => n[0]).join("")}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>

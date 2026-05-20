@@ -44,7 +44,10 @@ export default function Hero() {
 
   const partial = currentLine < typewriterLines.length ? typewriterLines[currentLine].slice(0, currentChar) : ""
 
-  const stats = config.stats.map((s, i) => ({ ...s, label: t.statsLabels[i] ?? s.label }))
+  const stats = config.stats.map((s, i) => ({
+    ...s,
+    label: s.label || t.statsLabels?.[i] || "",
+  }))
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-12 overflow-hidden">
@@ -52,33 +55,32 @@ export default function Hero() {
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-secondary/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        {/* Terminal */}
-        <div className="scanline rounded-xl border border-primary/25 bg-base-200/80 backdrop-blur-sm p-6 glow-box font-mono text-sm leading-relaxed">
+        <div className="rounded-[2rem] border border-primary/20 bg-[#111827]/85 backdrop-blur-xl p-6 shadow-2xl text-sm font-mono leading-relaxed">
           <div className="flex items-center gap-2 mb-5 pb-3 border-b border-base-300">
-            <span className="w-3 h-3 rounded-full bg-error" />
-            <span className="w-3 h-3 rounded-full bg-warning" />
-            <span className="w-3 h-3 rounded-full bg-success" />
-            <span className="ml-3 text-base-content/40 text-xs tracking-wider">portfolio.sh</span>
+            <span className="w-3 h-3 rounded-full bg-secondary" />
+            <span className="w-3 h-3 rounded-full bg-primary" />
+            <span className="w-3 h-3 rounded-full bg-accent" />
+            <span className="ml-3 text-base-content/40 text-xs tracking-wider">portfolio.data</span>
           </div>
 
           {displayed.map((line, i) => (
             <div key={i} className={`mb-2 ${
-              i === 0 ? "text-base-content/50"
-              : i === 1 ? "text-base-content font-bold text-lg"
+              i === 0 ? "text-base-content/60"
+              : i === 1 ? "text-base-content font-semibold text-lg"
               : i === 2 ? "text-secondary"
-              : "text-warning"}`}>
+              : "text-primary"}`}>
               {line}
             </div>
           ))}
 
           {!done && (
             <div className={`mb-2 ${
-              currentLine === 1 ? "text-base-content font-bold text-lg"
+              currentLine === 1 ? "text-base-content font-semibold text-lg"
               : currentLine === 2 ? "text-secondary"
-              : currentLine === 3 ? "text-warning"
-              : "text-base-content/50"}`}>
+              : currentLine === 3 ? "text-primary"
+              : "text-base-content/60"}`}>
               {partial}
-              <span className="text-primary animate-[blink_1s_step-end_infinite]">█</span>
+              <span className="text-secondary animate-[blink_1s_step-end_infinite]">█</span>
             </div>
           )}
 
@@ -86,7 +88,7 @@ export default function Hero() {
             <div className="mt-6 pt-4 border-t border-base-300 grid grid-cols-3 gap-4">
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <div className="text-primary font-bold text-xl">{s.value}</div>
+                  <div className="text-secondary font-semibold text-xl">{s.value}</div>
                   <div className="text-base-content/40 text-xs mt-0.5">{s.label}</div>
                 </div>
               ))}
@@ -94,10 +96,9 @@ export default function Hero() {
           )}
         </div>
 
-        {/* Right */}
         <div className="space-y-6" style={{ opacity: done ? 1 : 0, transition: "opacity 0.8s ease 0.3s" }}>
           <div>
-            <p className="font-mono text-primary text-xs tracking-widest uppercase mb-3">
+            <p className="font-mono text-secondary text-xs tracking-widest uppercase mb-3">
               {t.hero.available}
             </p>
             <h1 className="font-display font-extrabold leading-none">
@@ -106,26 +107,26 @@ export default function Hero() {
                   word.length > 12 ? "text-3xl md:text-4xl"
                   : word.length > 8 ? "text-4xl md:text-5xl"
                   : "text-5xl md:text-6xl"
-                } ${i % 2 === 0 ? "text-base-content" : "text-primary"} mb-0.5`}>
+                } ${i % 2 === 0 ? "text-base-content" : "text-secondary"} mb-0.5`}>
                   {word}
                 </div>
               ))}
             </h1>
-            <p className="font-body text-base-content/50 text-lg mt-3 leading-relaxed max-w-md">
-              {config.bio.slice(0, 140)}…
+            <p className="font-body text-base-content/70 text-lg mt-3 leading-relaxed max-w-md">
+              {("Passionate Data Scientist on a quest to uncover hidden patterns. Explore my world where curiosity meets Machine Learning...")}
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <a href="#projects" className="btn btn-primary font-mono text-xs tracking-wider">
+            <a href="#projects" className="btn btn-primary font-display text-sm tracking-wide">
               {t.hero.viewProjects}
             </a>
-            <a href="#contact" className="btn btn-outline border-base-content/20 text-base-content/50 hover:border-primary hover:text-primary font-mono text-xs tracking-wider">
+            <a href="#contact" className="btn btn-outline border-primary/30 text-base-content/70 hover:border-secondary hover:text-secondary font-display text-sm tracking-wide">
               {t.hero.contactMe}
             </a>
             {config.resumeUrl && (
               <a href={config.resumeUrl} target="_blank" rel="noopener noreferrer"
-                className="btn btn-ghost text-secondary font-mono text-xs tracking-wider hover:bg-secondary/10">
+                className="btn btn-ghost text-secondary font-display text-sm tracking-wide hover:bg-secondary/10">
                 {t.hero.resume}
               </a>
             )}
@@ -134,20 +135,14 @@ export default function Hero() {
           <div className="flex gap-4 pt-2">
             {config.github && (
               <a href={`https://github.com/${config.github}`} target="_blank" rel="noopener noreferrer"
-                className="text-base-content/40 hover:text-base-content transition-colors">
+                className="text-base-content/50 hover:text-base-content transition-colors">
                 <GithubIcon />
               </a>
             )}
             {config.linkedin && (
               <a href={config.linkedin} target="_blank" rel="noopener noreferrer"
-                className="text-base-content/40 hover:text-secondary transition-colors">
+                className="text-base-content/50 hover:text-secondary transition-colors">
                 <LinkedinIcon />
-              </a>
-            )}
-            {config.kaggle && (
-              <a href={config.kaggle} target="_blank" rel="noopener noreferrer"
-                className="text-base-content/40 hover:text-secondary transition-colors">
-                <KaggleIcon />
               </a>
             )}
           </div>
