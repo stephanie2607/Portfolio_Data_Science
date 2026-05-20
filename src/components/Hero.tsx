@@ -123,13 +123,13 @@ export default function Hero() {
             </a>
             <a href="#contact" className="btn btn-outline border-primary/30 text-base-content/70 hover:border-secondary hover:text-secondary font-display text-sm tracking-wide">
               {t.hero.contactMe}
-            {/* </a>
-            {config.resumeUrl && (
+            </a>
+            {/* {config.resumeUrl && (
               <a href={config.resumeUrl} target="_blank" rel="noopener noreferrer"
                 className="btn btn-ghost text-secondary font-display text-sm tracking-wide hover:bg-secondary/10">
                 {t.hero.resume}
-              </a> */}
-            )}
+              </a>
+            )} */}
           </div>
 
           <div className="flex gap-4 pt-2">
