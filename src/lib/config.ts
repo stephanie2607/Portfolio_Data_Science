@@ -6,7 +6,7 @@ export const config = {
   // ── Personal Info ──────────────────────────────────────────
   name: "RASOAMANANA Herimanjaka Stéphanie",
   title: "Data Scientist | Analyst | Engineer",
-  tagline: "Professional data scientist passionate about creating end-to-end solutions — from raw pipelines to production ML models.",
+  tagline: "Student data scientist passionate about creating end-to-end solutions — from raw pipelines to production ML models.",
   bio: `Fuelled by an infectious optimism and a deep passion for Big Data & AI, I build scalable solutions where engineering rigor meets strategic vision, always driven by a relentless curiosity to innovate and a proactive search for new technological opportunities.`,
   location: "Antananarivo, Madagascar",
   email: "stephparabis@gmail.com",
