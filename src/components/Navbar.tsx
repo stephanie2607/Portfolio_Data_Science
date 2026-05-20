@@ -7,7 +7,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
-  const { lang, toggleLang, t } = useLang()
+  const { t } = useLang()
 
   const links = [
     { label: t.nav.about, href: "#about" },
@@ -56,13 +56,6 @@ export default function Navbar() {
             </li>
           )} */}
           <li>
-            <button onClick={toggleLang}
-              className="btn btn-xs btn-ghost font-mono tracking-wider text-base-content/60 hover:text-primary border border-base-content/10 hover:border-primary/40 min-w-[2.5rem]"
-              title={lang === "en" ? "Passer en français" : "Switch to English"}>
-              {lang === "en" ? "FR" : "EN"}
-            </button>
-          </li>
-          <li>
             <button onClick={toggleTheme}
               className="btn btn-xs btn-ghost text-base-content/60 hover:text-primary border border-base-content/10 hover:border-primary/40 w-8 h-8 p-0"
               title={theme === "dark" ? "Light mode" : "Dark mode"}>
@@ -72,10 +65,6 @@ export default function Navbar() {
         </ul>
 
         <div className="flex md:hidden items-center gap-2">
-          <button onClick={toggleLang}
-            className="btn btn-xs btn-ghost font-mono text-base-content/60 hover:text-primary border border-base-content/10">
-            {lang === "en" ? "FR" : "EN"}
-          </button>
           <button onClick={toggleTheme}
             className="btn btn-xs btn-ghost text-base-content/60 hover:text-primary border border-base-content/10 w-8 h-8 p-0">
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}

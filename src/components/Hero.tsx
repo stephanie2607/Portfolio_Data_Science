@@ -55,7 +55,7 @@ export default function Hero() {
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-secondary/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        <div className="rounded-[2rem] border border-primary/20 bg-[#111827]/85 backdrop-blur-xl p-6 shadow-2xl text-sm font-mono leading-relaxed">
+        <div className="rounded-[2rem] border border-base-300 bg-base-200/80 backdrop-blur-xl p-6 shadow-2xl text-sm font-mono leading-relaxed">
           <div className="flex items-center gap-2 mb-5 pb-3 border-b border-base-300">
             <span className="w-3 h-3 rounded-full bg-secondary" />
             <span className="w-3 h-3 rounded-full bg-primary" />

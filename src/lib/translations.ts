@@ -116,6 +116,7 @@ export const translations = {
       emptyPlaceholder: "Définissez NEXT_PUBLIC_GITHUB_USERNAME dans votre environnement ou modifiez src/lib/config.ts",
       emptyNone: (u: string) => `Aucun dépôt avec "DATASCIENCE" dans la description trouvé pour @${u}`,
       emptyHint: 'Ajoutez "DATASCIENCE" dans la description d\'un dépôt pour le mettre en avant.',
+      privateNote: "Dépôt privé — Description non disponible",
       github: "GitHub",
       liveDemo: "Démo live",
     },
