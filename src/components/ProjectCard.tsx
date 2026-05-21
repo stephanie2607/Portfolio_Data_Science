@@ -80,10 +80,10 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="flex flex-col flex-1 p-5 gap-3">
         <div>
-          <h3 className="font-display font-bold text-base-content text-lg leading-tight mb-1 group-hover:text-primary transition-colors">
+          <h3 className="font-display font-bold text-base-content text-lg leading-tight mb-2 group-hover:text-primary transition-colors">
             {project.name.replace(/-/g, " ").replace(/_/g, " ")}
           </h3>
-          <p className="font-body text-base-content/50 text-sm leading-relaxed line-clamp-3">
+          <p className="font-body text-base-content/75 text-base leading-relaxed line-clamp-4">
             {project.description || t.projects.privateNote}
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.topics.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {project.topics.slice(0, 4).map((topic) => (
-              <span key={topic} className="badge badge-xs bg-base-300 text-base-content/50 border-0 font-mono">
+              <span key={topic} className="badge badge-xs bg-base-300 text-secondary border-0 font-mono">
                 {topic}
               </span>
             ))}
